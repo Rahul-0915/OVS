@@ -340,7 +340,7 @@ public class UserRest {
     public String addUserRest(
             @PathParam("userName") String userName,
             @PathParam("email") String email,
-            @PathParam("mobile") int mobile,
+            @PathParam("mobile") String mobile,
             @PathParam("password") String password,
             @PathParam("gId") int gId,
             @PathParam("verify") int verify) {

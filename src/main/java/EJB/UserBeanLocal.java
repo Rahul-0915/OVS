@@ -52,7 +52,7 @@ public interface UserBeanLocal {
     Collection<Votes> findByElectionName(String electionName);
 
     //users.......................
-    void addUser(String userName, String email,int mobile, String password, int gId, int verify);
+    void addUser(String userName, String email,String mobile, String password, int gId, int verify);
     
 
 

@@ -175,7 +175,7 @@ public class UserBean implements UserBeanLocal {
     // users .......................................
 
     @Override
-    public void addUser(String userName, String email,int mobile, String password, int gId, int verify) {
+    public void addUser(String userName, String email,String mobile, String password, int gId, int verify) {
 
         try {
             GroupMaster g = em.find(GroupMaster.class, gId);

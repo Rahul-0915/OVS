@@ -7,7 +7,7 @@
       xmlns:f="jakarta.faces.core">
 
     <h:head>
-        <title>Log-in</title>
+        <title>OVS/Log-in</title>
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </h:head>
@@ -31,6 +31,7 @@
                 <h:inputSecret id="password" value="#{UserCDIBean.password}"               
                                required="true" 
                                requiredMessage="Password is required."
+                               validatorMessage="Enter Valid Password"
                                a:placeholder="Enter your password">
                     <f:validateRegex pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&amp;]).{8,}$"/>
                 </h:inputSecret>

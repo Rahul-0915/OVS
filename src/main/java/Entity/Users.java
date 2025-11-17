@@ -54,7 +54,7 @@ public class Users implements Serializable {
     private String emailId;
 
     @Column(name = "mobile_number")
-    private Integer mobileNumber;
+    private String mobileNumber;
 
     // ✔ FIX: Hashed password length hoti hai 40-60 chars → max 20 wrong tha
     @Size(max = 255)
@@ -99,11 +99,11 @@ public class Users implements Serializable {
         this.emailId = emailId;
     }
 
-    public Integer getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Integer mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 

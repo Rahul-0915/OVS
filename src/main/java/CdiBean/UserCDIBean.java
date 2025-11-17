@@ -6,7 +6,9 @@ import Entity.Users;
 import jakarta.ejb.EJB;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.RequestScoped;
+
 import jakarta.faces.context.FacesContext;
+
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ public class UserCDIBean {
 
     private String userName;
     private String emailId;
-    private Integer mobileNumber = 1234567891;
+    private String mobileNumber;
     private String password;
     private String confirmPassword;   // ⬅️ ADDED
     private int gId = 1;              // ⬅️ BY DEFAULT
@@ -48,7 +50,7 @@ public class UserCDIBean {
         guser = new GenericType<Collection<Users>>() {
         };
     }
-
+    
 //    // EMAIL VALIDATION
     private static boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -138,11 +140,11 @@ public class UserCDIBean {
         this.emailId = emailId;
     }
 
-    public Integer getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Integer mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
@@ -177,4 +179,9 @@ public class UserCDIBean {
     public void setVerification(int verification) {
         this.verification = verification;
     }
+   
 }
+
+
+
+
