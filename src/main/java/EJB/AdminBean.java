@@ -7,6 +7,7 @@ package EJB;
 import Entity.Candidates;
 import Entity.Elections;
 import Entity.Party;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -302,6 +303,12 @@ public class AdminBean implements AdminBeanLocal {
         Party p = em.find(Party.class, partyId);
         if (p != null) {
             em.remove(p);
-        }
+        }   
+    }
+    @RolesAllowed("Admin")
+//@PermitAll  
+    //@DenyAll   
+    public String saySecureHello() {
+        return "Secure Hello from Secure Bean";
     }
 }

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Admin Dashboard</title>
+    <link href="CSS/AdminDashboard.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+
+    <div class="layout">
+
+        <!-- LEFT SIDEBAR -->
+        <div class="sidebar">
+<h3 style="color:white; text-align:center; margin-bottom:20px;"> Admin Panel </h3>
+            <p:panelMenu styleClass="panelMenuCustom">
+           
+                <p:submenu label="Elections" icon="pi pi-briefcase">
+                    <p:menuitem value="Manage Elections"
+                                onclick="PF('mainTabs').select(1)" />
+                    <p:menuitem value="Add Election" icon="pi pi-plus" />
+                </p:submenu>
+
+                <p:submenu label="Parties" icon="pi pi-users">
+                    <p:menuitem value="Manage Parties"
+                                onclick="PF('mainTabs').select(2)" />
+                </p:submenu>
+
+                <p:submenu label="Candidates" icon="pi pi-id-card">
+                    <p:menuitem value="Manage Candidates"
+                                onclick="PF('mainTabs').select(3)" />
+                </p:submenu>
+
+                <p:submenu label="Voters" icon="pi pi-user">
+                    <p:menuitem value="Manage Voters"
+                                onclick="PF('mainTabs').select(4)" />
+                </p:submenu>
+
+                <p:menuitem value="Results"
+                            icon="pi pi-chart-line"
+                            onclick="PF('mainTabs').select(5)" />
+            </p:panelMenu>
+
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="main">
+
+            <!-- HEADER -->
+            <div class="header">
+                <h3>Online Voting Admin</h3>
+
+                <h:form>
+                    <p:commandButton value="Logout"
+                                     icon="pi pi-sign-out"
+                                     styleClass="ui-button-danger" />
+                </h:form>
+            </div>
+
+
+            <!-- INNER CONTENT -->
+            <div class="content">
+
+                <p:tabView widgetVar="mainTabs">
+
+                    <!-- DASHBOARD TAB -->
+                    <p:tab title="Dashboard">
+                        <h3>Summary</h3>
+
+                        <div class="dashboard-cards">
+
+                            <div class="card card-blue">
+                                <h2>3</h2>Active Elections
+                            </div>
+
+                            <div class="card card-yellow">
+                                <h2>5</h2>Parties
+                            </div>
+
+                            <div class="card card-green">
+                                <h2>25</h2>Candidates
+                            </div>
+
+                            <div class="card card-red">
+                                <h2>1500</h2>Voters
+                            </div>
+
+                        </div>
+                    </p:tab>
+
+                    <!-- ELECTIONS TAB -->
+                    <p:tab title="Elections">
+                        <h3>Manage Elections</h3>
+
+                        <p:dataTable value="#{adminController.elections}" var="e">
+                            <p:column headerText="Name">#{e.name}</p:column>
+                            <p:column headerText="Start Date">#{e.startDate}</p:column>
+                            <p:column headerText="End Date">#{e.endDate}</p:column>
+                            <p:column headerText="Status">#{e.status}</p:column>
+                        </p:dataTable>
+                    </p:tab>
+
+                    <!-- PARTIES -->
+                    <p:tab title="Parties">
+                        <h3>Political Parties</h3>
+
+                        <p:dataTable value="#{adminController.parties}" var="p">
+                            <p:column headerText="Name">#{p.name}</p:column>
+                            <p:column headerText="Symbol">#{p.symbol}</p:column>
+                            <p:column headerText="Leader">#{p.leader}</p:column>
+                        </p:dataTable>
+                    </p:tab>
+
+                    <!-- CANDIDATES -->
+                    <p:tab title="Candidates">
+                        <h3>Candidate List</h3>
+
+                        <p:dataTable value="#{adminController.candidates}" var="c">
+                            <p:column headerText="Name">#{c.name}</p:column>
+                            <p:column headerText="Party">#{c.party}</p:column>
+                            <p:column headerText="Constituency">#{c.constituency}</p:column>
+                        </p:dataTable>
+                    </p:tab>
+
+                    <!-- VOTERS -->
+                    <p:tab title="Voters">
+                        <h3>Registered Voters</h3>
+
+                        <p:dataTable value="#{adminController.voters}" var="v">
+                            <p:column headerText="Voter ID">#{v.voterId}</p:column>
+                            <p:column headerText="Name">#{v.name}</p:column>
+                            <p:column headerText="Email">#{v.email}</p:column>
+                        </p:dataTable>
+                    </p:tab>
+
+                    <!-- RESULTS -->
+                    <p:tab title="Results">
+                        <h3>Election Results</h3>
+
+                        <p:dataTable value="#{adminController.results}" var="r">
+                            <p:column headerText="Party">#{r.party}</p:column>
+                            <p:column headerText="Candidate">#{r.candidate}</p:column>
+                            <p:column headerText="Votes">#{r.votes}</p:column>
+                        </p:dataTable>
+                    </p:tab>
+
+                </p:tabView>
+            </div>
+
+        </div>
+    </div>
+
+</h:body>
+</html>

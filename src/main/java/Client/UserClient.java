@@ -30,6 +30,21 @@ public class UserClient {
         client = jakarta.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("User");
     }
+    
+    static {
+        //for localhost testing only
+        javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
+                new javax.net.ssl.HostnameVerifier() {
+
+            public boolean verify(String hostname,
+                    javax.net.ssl.SSLSession sslSession) {
+                if (hostname.equals("localhost")) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
 
     public String addVote(String voterId, String candidateId, String partyId, String electionId, String verifyStatus, String electionName) throws ClientErrorException {
         return webTarget.path(java.text.MessageFormat.format("addvote/{0}/{1}/{2}/{3}/{4}/{5}", new Object[]{voterId, candidateId, partyId, electionId, verifyStatus, electionName})).request().post(null, String.class);

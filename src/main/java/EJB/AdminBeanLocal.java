@@ -68,5 +68,7 @@ public interface AdminBeanLocal {
     void updateParty(Integer partyId, String partyName, String leaderName, String partySymbolPath, Integer foundedYear);
 
     void deleteParty(Integer partyId);
+    
+    public String saySecureHello();
 
 }

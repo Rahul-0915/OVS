@@ -10,6 +10,7 @@ import EJB.AdminBeanLocal;
 import Entity.Candidates;
 import Entity.Elections;
 import Entity.Party;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -676,6 +677,15 @@ public String findByFoundedYear(@PathParam("foundedYear") int foundedYear) {
         return "Error fetching parties by founded year: " + e.getMessage();
     }
 }
+@RolesAllowed({"Admin"})
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String sayHello() {
+
+        //TODO return proper representation object
+        // throw new UnsupportedOperationException();
+        return ovs.saySecureHello() + " from Rest Client";
+    }
 //
 }
 

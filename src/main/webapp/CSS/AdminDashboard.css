@@ -1,0 +1,76 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+}
+
+/* MAIN LAYOUT */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 230px;
+    background:gray;
+    color: white;
+    padding: 15px 10px;
+}
+
+.panelMenuCustom {
+    background: #0f172a !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* RIGHT MAIN AREA */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.header {
+    background: #ffffff;
+    height: 60px;
+    display: flex;
+    border-bottom: 1px solid #d6d6d6;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: #1e293b;
+}
+
+/* INNER CONTENT */
+.content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* DASHBOARD CARDS */
+.dashboard-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.card-blue { background: #3b82f6; }
+.card-yellow { background: #f59e0b; }
+.card-green { background: #10b981; }
+.card-red { background: #ef4444; }
