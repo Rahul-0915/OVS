@@ -10,6 +10,7 @@ import EJB.AdminBeanLocal;
 import Entity.Candidates;
 import Entity.Elections;
 import Entity.Party;
+import jakarta.annotation.security.DeclareRoles;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.DELETE;
@@ -34,6 +35,7 @@ import java.util.Date;
  * @author Rahul
  */
 @Path("Admin")
+@DeclareRoles("admin")
 public class AdminRest{
 
     //Election Rest ..................................

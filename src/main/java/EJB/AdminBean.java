@@ -7,6 +7,7 @@ package EJB;
 import Entity.Candidates;
 import Entity.Elections;
 import Entity.Party;
+import jakarta.annotation.security.DeclareRoles;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -19,6 +20,7 @@ import java.util.Date;
  * @author Rahul
  */
 @Stateless
+@DeclareRoles({"admin", "user"})
 public class AdminBean implements AdminBeanLocal {
 
     @PersistenceContext(unitName = "OVS")

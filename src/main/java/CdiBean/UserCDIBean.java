@@ -60,6 +60,7 @@ public class UserCDIBean {
     }
 
     public String insertUser() {
+        
 
         // EMAIL VALIDATION
         if (!isValidEmail(emailId)) {
