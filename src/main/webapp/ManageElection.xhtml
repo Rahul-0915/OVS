@@ -231,9 +231,17 @@ body {
         <td>#{e.description}</td>
         <td>
             <div class="btndiv">
-                <a href="ElectionUpdate.jsf?id=#{e.electionId}" class="btn-edit">Edit</a>
-                <h:commandLink value="Delete" action="#{adminCDIBean.deleteElection(e.electionId)}" styleClass="btn-delete"
-                               onclick="return confirm('Are you sure?')" />
+                <!-- Edit Link with ID parameter -->
+                <h:link outcome="ElectionUpdate" value="Edit" styleClass="btn-edit">
+                    <f:param name="id" value="#{e.electionId}"/>
+                </h:link>
+                
+                <!-- Delete Button -->
+                <h:commandLink value="Delete" action="#{adminCDIBean.deleteElection(e.electionId)}" 
+                               styleClass="btn-delete"
+                               onclick="return confirm('Are you sure?')">
+                    <f:ajax render="@form"/>
+                </h:commandLink>
             </div>
         </td>
     </tr>
