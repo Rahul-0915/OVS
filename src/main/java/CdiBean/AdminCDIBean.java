@@ -122,7 +122,7 @@ public class AdminCDIBean implements Serializable {
 
             clearFields();
             refreshElectionList();
-            return "electionList.xhtml?faces-redirect=true";
+            return "ManageElection.xhtml?faces-redirect=true";
         }
         return null;
     }

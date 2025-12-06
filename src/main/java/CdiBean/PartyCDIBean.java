@@ -140,7 +140,7 @@ public class PartyCDIBean implements Serializable {
             e.printStackTrace();
         }
 
-        return "PartyManage.xhtml?faces-redirect=true";
+        return "ManageParties.jsf?faces-redirect=true";
     }
 
     // DELETE PARTY

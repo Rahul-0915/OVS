@@ -88,7 +88,7 @@ public class SecureAuthentication implements HttpAuthenticationMechanism, Serial
                     keepRecord.setCredential(credential);
 
                     if (result.getCallerGroups().contains("admin")) {
-                        request.getRequestDispatcher("Admin.jsf").forward(request, response);
+                        request.getRequestDispatcher("AdminDashboard.jsf").forward(request, response);
                     }
                     if (result.getCallerGroups().contains("user")) {
                         request.getRequestDispatcher("Users.jsf").forward(request, response);
